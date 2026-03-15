@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clariview 🎙️ — Interview Transcription</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>🎙️ Clariview</h1>
+      <p class="subtitle">AI-Powered Interview Transcription & Highlight Generator</p>
+    </header>
+
+    <section class="upload-box">
+      <div class="upload-icon">📁</div>
+      <p>Apni audio file yahan drop karo ya click karo</p>
+      <input type="file" id="fileInput" accept="audio/*,video/*" hidden />
+      <button class="btn-primary" onclick="document.getElementById('fileInput').click()">
+        Audio File Choose Karo
+      </button>
+      <p id="fileName" class="file-name"></p>
+    </section>
+
+    <div class="center">
+      <button class="btn-process" id="processBtn" disabled
+              onclick="startProcessing()">
+        🚀 Transcribe & Generate Highlights
+      </button>
+    </div>
+
+    <div id="progressSection" class="hidden">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p id="progressText" class="progress-text">Processing...</p>
+    </div>
+
+    <div id="playerSection" class="hidden">
+      <h3>🔊 Audio Player</h3>
+      <audio id="audioPlayer" controls></audio>
+    </div>
+
+    <div id="resultsSection" class="hidden">
+
+      <div class="card">
+        <h2>⭐ Top Highlights</h2>
+        <div id="highlightsList"></div>
+      </div>
+
+      <div class="card">
+        <h2>📝 Full Transcript</h2>
+        <div id="transcriptList"></div>
+      </div>
+
+      <div class="download-row">
+        <button class="btn-download" onclick="downloadJSON()">
+          ⬇️ Download JSON
+        </button>
+        <button class="btn-download" onclick="downloadTXT()">
+          ⬇️ Download TXT
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

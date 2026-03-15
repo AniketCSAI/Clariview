@@ -1,0 +1,201 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  min-height: 100vh;
+  color: #eee;
+  padding: 20px;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  padding: 40px 0 30px;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+/* Upload Box */
+.upload-box {
+  border: 2px dashed #4f46e5;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  background: rgba(79, 70, 229, 0.08);
+  margin-bottom: 24px;
+  transition: border-color 0.3s;
+}
+.upload-box:hover { border-color: #a78bfa; }
+.upload-icon { font-size: 3rem; margin-bottom: 12px; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 14px;
+  transition: transform 0.2s;
+}
+.btn-primary:hover { transform: scale(1.04); }
+
+.file-name {
+  margin-top: 12px;
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+/* Process Button */
+.center { text-align: center; margin-bottom: 24px; }
+
+.btn-process {
+  background: linear-gradient(135deg, #059669, #0891b2);
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 700;
+}
+.btn-process:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.btn-process:not(:disabled):hover { transform: scale(1.05); }
+
+/* Progress */
+.progress-bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 50px;
+  height: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #34d399);
+  width: 0%;
+  transition: width 0.5s;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.progress-text {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+/* Player */
+#playerSection {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+#playerSection h3 { margin-bottom: 12px; color: #a78bfa; }
+audio { width: 100%; }
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+  color: #a78bfa;
+}
+
+/* Highlight Item */
+.highlight-item {
+  background: rgba(167,139,250,0.12);
+  border-left: 4px solid #a78bfa;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.highlight-item:hover { background: rgba(167,139,250,0.22); }
+
+.highlight-time {
+  font-size: 0.78rem;
+  color: #60a5fa;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.highlight-score {
+  font-size: 0.72rem;
+  color: #34d399;
+  float: right;
+}
+.highlight-text { font-size: 0.95rem; line-height: 1.5; }
+
+/* Transcript Segment */
+.segment-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 6px;
+  padding: 10px 8px;
+}
+.segment-item:hover { background: rgba(255,255,255,0.05); }
+
+.seg-time {
+  min-width: 55px;
+  color: #60a5fa;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding-top: 2px;
+}
+.seg-text { font-size: 0.9rem; line-height: 1.6; color: #d1d5db; }
+
+/* Download */
+.download-row {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.btn-download {
+  background: rgba(255,255,255,0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 10px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+.btn-download:hover { background: rgba(255,255,255,0.15); }
+
+.hidden { display: none; }
