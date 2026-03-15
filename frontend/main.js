@@ -2,7 +2,7 @@ let resultData = null;
 let uploadedFilePath = null;
 let uploadedMediaId = null;
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "http://192.168.29.201:8000";;
 
 document.getElementById("fileInput").addEventListener("change", function () {
   const file = this.files[0];
