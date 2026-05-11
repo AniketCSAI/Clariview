@@ -20,7 +20,7 @@ document.getElementById("fileInput").addEventListener("change", function () {
 async function startProcessing() {
   const fileInput = document.getElementById("fileInput");
   if (!fileInput.files[0]) {
-    alert("Bhai pehle file choose karo! 😅");
+    alert("Please Select an Audio File First! 😅");
     return;
   }
 
@@ -31,7 +31,7 @@ async function startProcessing() {
   document.getElementById("resultsSection").classList.add("hidden");
 
   try {
-    updateProgress(20, "📤 File upload ho rahi hai...");
+    updateProgress(20, "📤 Uploading file...");
 
     const formData = new FormData();
     formData.append("file", file);
@@ -50,7 +50,7 @@ async function startProcessing() {
     uploadedMediaId = uploadData.media_id;
     uploadedFilePath = uploadData.path;
 
-    updateProgress(50, "🧠 AI transcription chal rahi hai... (thoda time lagega)");
+    updateProgress(50, "🧠 AI transcription in progress... (please wait)");
 
     const processRes = await fetch(
       `${API_BASE}/process/${uploadedMediaId}?path=${encodeURIComponent(uploadedFilePath)}`,
@@ -64,7 +64,7 @@ async function startProcessing() {
 
     resultData = await processRes.json();
 
-    updateProgress(100, "✅ Done! Results ready hain!");
+    updateProgress(100, "✅ Done! Result is ready!");
 
     setTimeout(() => {
       document.getElementById("progressSection").classList.add("hidden");
@@ -75,7 +75,7 @@ async function startProcessing() {
     console.error(error);
     updateProgress(0, `❌ Error: ${error.message}`);
     document.getElementById("processBtn").disabled = false;
-    alert(`Kuch gadbad ho gayi bhai:\n${error.message}`);
+    alert(`Something went wrong:\n${error.message}`);
   }
 }
 
@@ -99,7 +99,7 @@ function renderResults(data) {
       highlightsList.appendChild(div);
     });
   } else {
-    highlightsList.innerHTML = "<p style='color:#94a3b8'>Koi highlight nahi mili.</p>";
+    highlightsList.innerHTML = "<p style='color:#94a3b8'>No highlights found.</p>";
   }
 
   const transcriptList = document.getElementById("transcriptList");
